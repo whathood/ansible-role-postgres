@@ -10,8 +10,10 @@ cache: pip
 
 install:
 
+  - sudo /etc/init.d/postgresql stop
+
   # gotta sudo pip because docker will be sudo'd
-  - sudo pip install -r ./requirements.txt
+  - pip install -r ./requirements.txt
   - echo '[defaults]' > ansible.cfg
   - echo 'roles_path = ../:../../' >> ansible.cfg
   - echo 'host_key_checking = False' >> ansible.cfg
